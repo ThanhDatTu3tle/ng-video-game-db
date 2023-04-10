@@ -1,0 +1,31 @@
+<div class="w-full h-15 bg-[#323a45] flex items-center content-start fixed top-0 left-0 z-[4]">
+  <form class="w-full max-w-[1200px] mt-3 mb-3" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <span class="ml-2.5 text-[#fff] font-bold cursor-pointer no-underline" routerLink="/">NgVGDB</span>
+
+    <input
+      class="ml-2.5 p-2.5 w-[300px] rounded-tl-[5px] rounded-bl-[5px] outline-none border-none"
+      name="search"
+      ngModel
+      placeholder="Search 500,000+ games"
+    />
+
+    <button class="
+      outline-none
+      border-none
+      bg-[#3f51b5]
+      p-2.5
+      rounded-l-[1px solid rgba(0, 0, 0, 0.3)]
+      rounded-tr-[5px]
+      rounded-br-[5px]
+      text-[#fff]
+      font-bold
+      duration-300
+      cursor-pointer
+      hover:text-[#3f51b5]
+      hover:bg-[#fff]
+      hover:border-[1px solid #3f51b5]
+    ">
+        Search
+    </button>
+  </form>
+</div>

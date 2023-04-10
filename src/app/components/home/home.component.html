@@ -1,0 +1,50 @@
+<div class="max-w-[1200px] mt-[20px] mb-[20px] pl-[20px]">
+  <mat-form-field>
+    <mat-label>Sort</mat-label>
+    <mat-select
+      [(ngModel)]="sort"
+      (selectionChange)="searchGames(sort)"
+      panelClass="sort-select"
+    >
+      <mat-option value="name">Name</mat-option>
+      <mat-option value="-released">Released</mat-option>
+      <mat-option value="-added">Added</mat-option>
+      <mat-option value="-created">Created</mat-option>
+      <mat-option value="-updated">Updated</mat-option>
+      <mat-option value="-rating">Rating</mat-option>
+      <mat-option value="metacritic">Metacritic</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="flex flex-wrap content-center max-w-[1200px] mt-[20px] mb-[20px]">
+  <ng-container *ngFor="let game of games">
+    <div class="
+      w-[280px]
+      h-[330px]
+      m-2.5
+      overflow-hidden
+      rounded-[5px]
+      bg-[#202020]
+      shadow-[4px 3px 8px 0px rgb(200 152 44 / 22%)]
+      duration-300
+      cursor-pointer
+      hover:shadow-[4px 3px 11px 6px rgb(200 152 44 / 46%)]
+      hover:transform-y-[-3px]"
+      (click)="openGameDetails(game.id)
+    ">
+      <div class="bg-[#000] relative h-[172px] text-[#fff] text-center">
+        <img
+          *ngIf="game.background_image"
+          src="{{ game.background_image }}"
+          alt="thumbnail"
+          class="absolute top-0 left-0 right-0 mt-0 mb-0 h-[172px]"
+        />
+        <p *ngIf="!game.background_image">No image</p>
+      </div>
+      <div class="p-5 flex flex-col content-end h-[157px]">
+        <p class="text-[#fff] font-bold text-2xl mb-5 whitespace-nowrap text-ellipsis overflow-hidden">{{ game.name }}</p>
+      </div>
+    </div>
+  </ng-container>
+</div>
